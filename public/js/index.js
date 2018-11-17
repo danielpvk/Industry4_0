@@ -1,6 +1,6 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $processText = $("#process-name");
+var $processDescription = $("#process-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
@@ -64,22 +64,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var process = {
+    text: $processText.val().trim(),
+    description: $processDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(process.text && process.description)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(process).then(function() {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $processText.val("");
+  $processDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
