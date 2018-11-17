@@ -73,7 +73,7 @@ var handleFormSubmit = function(event) {
   console.log("lo que lei de la forma")
   console.log(process);
   if (!(process.Process_name && process.Process_Description)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter an a descripction of process!");
     return;
   }
 
