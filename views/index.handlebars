@@ -23,6 +23,14 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
+        <h3>Proceses:</h3>
+        <ul id="process-list" class="list-group">
+          {{#each process}} <!--examples viene del htmlRoutes-->
+          <li data-id="{{IdProcess}}" class="list-group-item">
+            <a href="example/{{IdProcess}}">{{Process_name}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
         </ul>
       </div>
     </div>
