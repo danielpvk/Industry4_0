@@ -24,12 +24,12 @@ var API = {
       type: "GET"
     });
   },
-  /*deleteExample: function(id) {
+  deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/process/" + id,
       type: "DELETE"
     }); 
-  }*/
+  }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
@@ -38,7 +38,7 @@ var refreshExamples = function() {
     var $process = data.map(function(example) {
       var $a = $("<a>")
         .process_name(example.Process_name)
-        .attr("href", "/example/" + Process.id);
+        .attr("href", "/process/" + Process.id);
 
       var $li = $("<li>")
         .attr({
@@ -78,7 +78,7 @@ var handleFormSubmit = function(event) {
   }
 
   API.saveExample(process).then(function() {
-   // refreshExamples();
+    refreshExamples();
     ;
   });
 

@@ -4,6 +4,8 @@ module.exports = function(app) {
   // Get all examples
   app.get("/api/process", function(req, res) {
     console.log("making get, the data returned is:");
+    console.log(req);
+    console.log(res);
     db.Process.findAll({}).then(function(dbProcess) {
       res.json(dbProcess);
     });
@@ -19,9 +21,9 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  app.delete("/api/process/:id", function(req, res) {
+    db.Process.destroy({ where: { id: req.params.id } }).then(function(dbProcess) {
+      res.json(dbProcess);
     });
   });
 };
