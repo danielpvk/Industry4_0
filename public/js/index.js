@@ -7,16 +7,18 @@ var $exampleList = $("#example-list");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
+    console.log("el json que envio al post");
+    console.log(example);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/process",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+/*   getExamples: function() {
     return $.ajax({
       url: "api/examples",
       type: "GET"
@@ -26,8 +28,8 @@ var API = {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
-    });
-  }
+    }); 
+  }*/
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
@@ -65,17 +67,19 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var process = {
-    text: $processText.val().trim(),
-    description: $processDescription.val().trim()
+    Process_name: $processText.val().trim(),
+    Process_Description: $processDescription.val().trim()
   };
-
-  if (!(process.text && process.description)) {
+  console.log("lo que lei de la forma")
+  console.log(process);
+  if (!(process.Process_name && process.Process_Description)) {
     alert("You must enter an example text and description!");
     return;
   }
 
   API.saveExample(process).then(function() {
-    refreshExamples();
+   // refreshExamples();
+    ;
   });
 
   $processText.val("");
