@@ -18,13 +18,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-/*   getExamples: function() {
+   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/process",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  /*deleteExample: function(id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -35,10 +35,10 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+    var $process = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .process_name(example.Process_name)
+        .attr("href", "/example/" + Process.id);
 
       var $li = $("<li>")
         .attr({
@@ -56,8 +56,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $processList.empty();
+    $processList.append($process);
   });
 };
 
