@@ -3,10 +3,12 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/process", function(req, res) {
-    console.log("making get, the data returned is:");
-    console.log(req);
-    console.log(res);
+//    console.log("making get, the data returned is:");
+//    console.log(req);
+ //   console.log(res);
     db.Process.findAll({}).then(function(dbProcess) {
+  //    console.log("dbProces");
+  //    console.log(dbProcess);
       res.json(dbProcess);
     });
   });

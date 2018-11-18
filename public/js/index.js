@@ -2,7 +2,7 @@
 var $processText = $("#process-name");
 var $processDescription = $("#process-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $processList = $("#process-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -35,10 +35,13 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
+    console.log(data);
     var $process = data.map(function(example) {
+      console.log ("******** PROCESS MAPPING");
+      console.log(example);
       var $a = $("<a>")
-        .process_name(example.Process_name)
-        .attr("href", "/process/" + Process.id);
+        .text(example.Process_name)
+        .attr("href", "/process/" + example.id);
 
       var $li = $("<li>")
         .attr({
@@ -55,7 +58,6 @@ var refreshExamples = function() {
 
       return $li;
     });
-
     $processList.empty();
     $processList.append($process);
   });
@@ -100,4 +102,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$processList.on("click", ".delete", handleDeleteBtnClick);
