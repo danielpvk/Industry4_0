@@ -1,6 +1,13 @@
 // Get references to page elements
 var $processText = $("#process-name");
 var $processDescription = $("#process-description");
+var $qdevices =$("#qdevices");
+var $device_name1=$("#device_name1");
+var $device_name2=$("#device_name2");
+var $device_name3=$("#device_name3");
+var $device_name4=$("#device_name4");
+var $device_name5=$("#device_name5");
+
 var $submitBtn = $("#submit");
 var $processList = $("#process-list");
 var $addprocess =$("#add-new-process");
@@ -53,7 +60,7 @@ var refreshExamples = function() {
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .text("Delete Process");
 
       $li.append($button);
 
@@ -71,7 +78,13 @@ var handleFormSubmit = function(event) {
 
   var process = {
     Process_name: $processText.val().trim(),
-    Process_Description: $processDescription.val().trim()
+    Process_Description: $processDescription.val().trim(),
+    Devices_quantity:$qdevices.val(),
+    Device1_name:$device_name1.val().trim(),
+    Device2_name:$device_name2.val().trim(),
+    Device3_name:$device_name3.val().trim(),
+    Device4_name:$device_name4.val().trim(),
+    Device5_name:$device_name5.val().trim()
   };
   console.log("lo que lei de la forma")
   console.log(process);
