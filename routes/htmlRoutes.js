@@ -10,6 +10,15 @@ module.exports = function(app) {
       });
     });
   });
+  // load add new process
+  app.get("/addprocess/", function(req, res) {
+    db.Process.findAll({}).then(function(dbProcess) {
+      res.render("addprocess", {
+        msg: "Welcome!",
+        process: dbProcess
+      });
+    });
+  });
 
   // Load example page and pass in an example by id
    app.get("/process/:id", function(req, res) {

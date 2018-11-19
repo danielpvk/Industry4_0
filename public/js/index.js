@@ -3,7 +3,8 @@ var $processText = $("#process-name");
 var $processDescription = $("#process-description");
 var $submitBtn = $("#submit");
 var $processList = $("#process-list");
-
+var $addprocess =$("#add-new-process");
+var $processStatus=$(".status");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -78,12 +79,15 @@ var handleFormSubmit = function(event) {
     alert("You must enter an a descripction of process!");
     return;
   }
+  else{
+    $processStatus.html('<a href="/">← Back To Home</a>'); 
+    $processStatus.append("<h2>PROCESS ADDED!!</h2>");
+  }
 
   API.saveExample(process).then(function() {
     refreshExamples();
     ;
   });
-
   $processText.val("");
   $processDescription.val("");
 };
@@ -103,3 +107,4 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $processList.on("click", ".delete", handleDeleteBtnClick);
+
