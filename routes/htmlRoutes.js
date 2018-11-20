@@ -33,4 +33,11 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   }); */
+  app.get("/process", function(req, res) {
+    db.Process.findAll({}).then(function(dbProcess) {
+      res.json(dbProcess);
+    });
+  });
+
+
 };

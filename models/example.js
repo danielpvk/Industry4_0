@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports =function(sequelize, DataTypes) {
   var Process = sequelize.define("Process", {
     Process_name: DataTypes.STRING,
     Process_Description: DataTypes.TEXT,
@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     Device5_type: DataTypes.INTEGER,
     IdDevice5: DataTypes.INTEGER
   });
+
   return Process;
 };
 

@@ -1,27 +1,52 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
+    <div class="col-12 offset-1">
+      <div class="card mt-12">
         <div class="card-body">
         <div class="status">
             <h2></h2>
         </div>
           <h5 class="card-title">Add New Process</h5>
-          <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
-              <label for="process-name">Add Process</label>
-              <input type="text" id="process-name" class="form-control" aria-describedby="process-name" placeholder="Enter Process Name">
-            </div>
-            <div class="form-group">
-              <label for="process-description">Process Description</label>
-              <textarea class="form-control" id="process-description" aria-describedby="process-description" placeholder="Enter Process Description"></textarea>
-            </div>
-            <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
+          <form class="clearfix mb-12" action="POST">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label for="process-name">Add Process</label>
+                  <input type="text" id="process-name" class="form-control" aria-describedby="process-name" placeholder="Enter Process Name">
+                </div>
+                <div class="form-group">
+                  <label for="process-description">Process Description</label>
+                  <textarea class="form-control" id="process-description" aria-describedby="process-description" placeholder="Enter Process Description"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="device_name1">Device 1 Name: </label>
+                  <input class="form-control" id="device_name1" aria-describedby="device-name" placeholder="Enter the name of the device to track"></input>
+                </div>
+                <div class="form-group">
+                  <label for="device_name2">Device 2 Name: </label>
+                  <input class="form-control" id="device_name2" aria-describedby="device-name" placeholder="Enter the name of the device to track"></input>
+                </div>
+                <div class="form-group">
+                  <label for="device_name3">Device 3 Name: </label>
+                  <input class="form-control" id="device_name3" aria-describedby="device-name" placeholder="Enter the name of the device to track"></input>
+                </div>      
+                <div class="form-group">
+                  <label for="device_name4">Device 4 Name: </label>
+                  <input class="form-control" id="device_name4" aria-describedby="device-name" placeholder="Enter the name of the device to track"></input>
+                </div>
+                
+                <div class="form-group">
+                  <label for="device_name5">Device 5 Name: </label>
+                  <input class="form-control" id="device_name5" aria-describedby="device-name" placeholder="Enter the name of the device to track"></input>
+                </div>
+             
 
+
+              <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/add.js"></script>

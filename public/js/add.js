@@ -1,6 +1,11 @@
 // Get references to page elements
 var $processText = $("#process-name");
 var $processDescription = $("#process-description");
+var $device1name=$("#device_name1");
+var $device2name=$("#device_name2");
+var $device3name=$("#device_name3");
+var $device4name=$("#device_name4");
+var $device5name=$("#device_name5");
 var $submitBtn = $("#submit");
 var $processList = $("#process-list");
 var $addprocess =$("#add-new-process");
@@ -33,37 +38,6 @@ var API = {
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    console.log(data);
-    var $process = data.map(function(example) {
-      console.log ("******** PROCESS MAPPING");
-      console.log(example);
-      var $a = $("<a>")
-        .text(example.Process_name)
-        .attr("href", "/process/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("delete");
-
-      $li.append($button);
-
-      return $li;
-    });
-    $processList.empty();
-    $processList.append($process);
-  });
-};
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -71,7 +45,12 @@ var handleFormSubmit = function(event) {
 
   var process = {
     Process_name: $processText.val().trim(),
-    Process_Description: $processDescription.val().trim()
+    Process_Description: $processDescription.val().trim(),
+    Device1_name: $device1name.val().trim(),
+    Device2_name: $device2name.val().trim(),
+    Device3_name: $device3name.val().trim(),
+    Device4_name: $device4name.val().trim(),
+    Device5_name: $device5name.val().trim()
   };
   console.log("lo que lei de la forma")
   console.log(process);
@@ -92,18 +71,8 @@ var handleFormSubmit = function(event) {
   $processDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-console.log(db.process);
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $processList.on("click", ".delete", handleDeleteBtnClick);
