@@ -12,20 +12,18 @@ module.exports = function(app) {
   app.post("/devicetype", function(req, res) {
     console.log("los datos del post en la api");
     console.log(req.body);
-    devicedb=require('../models/Process')(app);
-    db.Device.create(req.body).then(function(dbDevice) {
+      db.Device.create(req.body).then(function(dbDevice) {
       res.json(dbDevice);
     });
   });
 
     // Load example page and pass in an device type id
   app.get("/devicetype/:id", function(req, res) {
-      devicedb=require('../models/Process')(app);
-      devicedb.findOne({ where: { id: req.params.id } }).then(function(dbDevice) {
-        res.render("device", {
+       db.Device.findOne({ where: { id: req.params.id } }).then(function(dbDevice) {
+        res.render("devicetype", {
           device: dbDevice
         });
-      });
+      });   
   });
   
 
