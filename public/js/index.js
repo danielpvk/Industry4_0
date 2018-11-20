@@ -1,42 +1,48 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $processText = $("#process-name");
+var $processDescription = $("#process-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
-
+var $processList = $("#process-list");
+var $addprocess =$("#add-new-process");
+var $processStatus=$(".status");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
+    console.log("el json que envio al post");
+    console.log(example);
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/process",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/process",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/process/" + id,
       type: "DELETE"
-    });
+    }); 
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+    console.log(data);
+    var $process = data.map(function(example) {
+      console.log ("******** PROCESS MAPPING");
+      console.log(example.Object);
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(example.Process_name)
+        .attr("href", "/process/" + example.id);
 
       var $li = $("<li>")
         .attr({
@@ -47,15 +53,14 @@ var refreshExamples = function() {
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .text("delete");
 
       $li.append($button);
 
       return $li;
     });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $processList.empty();
+    $processList.append($process);
   });
 };
 
@@ -64,27 +69,33 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var process = {
+    Process_name: $processText.val().trim(),
+    Process_Description: $processDescription.val().trim()
   };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  console.log("lo que lei de la forma")
+  console.log(process);
+  if (!(process.Process_name && process.Process_Description)) {
+    alert("You must enter an a descripction of process!");
     return;
   }
+  else{
+    $processStatus.html('<a href="/">← Back To Home</a>'); 
+    $processStatus.append("<h2>PROCESS ADDED!!</h2>");
+  }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(process).then(function() {
     refreshExamples();
+    ;
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $processText.val("");
+  $processDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
+  console.log("entre al delete");
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
@@ -96,4 +107,5 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$processList.on("click", ".delete", handleDeleteBtnClick);
+

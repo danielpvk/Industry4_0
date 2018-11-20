@@ -4,7 +4,7 @@ var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
+var env = process.env.NODE_ENV || "test";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
@@ -39,4 +39,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Device=require("../models/devicetype.js")(sequelize,Sequelize);
+db.Process=require("../models/example.js")(sequelize,Sequelize);
 module.exports = db;
