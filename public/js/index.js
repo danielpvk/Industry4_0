@@ -39,7 +39,7 @@ var refreshExamples = function() {
     console.log(data);
     var $process = data.map(function(example) {
       console.log ("******** PROCESS MAPPING");
-      console.log(example);
+      console.log(example.Object);
       var $a = $("<a>")
         .text(example.Process_name)
         .attr("href", "/process/" + example.id);
@@ -95,6 +95,7 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
+  console.log("entre al delete");
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
@@ -103,7 +104,7 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
-console.log(db.process);
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $processList.on("click", ".delete", handleDeleteBtnClick);
