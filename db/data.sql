@@ -12,5 +12,5 @@ VALUES ("Motor 1hp",3,"Current consumption",1,7,"Temperature(C)",5,80,"vibration
 INSERT INTO devicetypes (DeviceTypeDescription,Parameters_quantity,Parameter1_name,Parameter1_min_val,Parameter1_max_val,Parameter2_name,Parameter2_min_val,Parameter2_max_val,Parameter3_name,Parameter3_min_val,Parameter3_max_val)
 VALUES ("Motor 2hp",3,"Current consumption",5,14,"Temperature(C)",5,80,"vibration",0.01,0.05);
 
-INSERT INTO devicetypes (DeviceTypeDescription)
-VALUES ("Motor 2hp");
+INSERT INTO devicetypes (DeviceTypeDescription,Parameters_quantity,Parameter1_name,Parameter1_min_val,Parameter1_max_val,Parameter2_name,Parameter2_min_val,Parameter2_max_val,Parameter3_name,Parameter3_min_val,Parameter3_max_val)
+VALUES ("Motor 5hp",3,"Current consumption",12,22,"Temperature(C)",5,80,"vibration",0.01,0.05);

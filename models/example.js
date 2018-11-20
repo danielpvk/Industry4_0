@@ -17,7 +17,12 @@ module.exports =function(sequelize, DataTypes) {
     IdDevice4: DataTypes.INTEGER,
     Device5_name: DataTypes.STRING,
     Device5_type: DataTypes.INTEGER,
-    IdDevice5: DataTypes.INTEGER
+    IdDevice5: DataTypes.INTEGER,
+    Device1_type_description:DataTypes.STRING,
+    Device2_type_description:DataTypes.STRING,
+    Device3_type_description:DataTypes.STRING,
+    Device4_type_description:DataTypes.STRING,
+    Device5_type_description:DataTypes.STRING
   });
 
   return Process;
