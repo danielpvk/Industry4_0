@@ -4,9 +4,13 @@ var $processDescription = $("#process-description");
 var $device1name=$("#device_name1");
 var $device1type=$("#device1_type");
 var $device2name=$("#device_name2");
+var $device2type=$("#device2_type");
 var $device3name=$("#device_name3");
+var $device3type=$("#device3_type");
 var $device4name=$("#device_name4");
+var $device4type=$("#device4_type");
 var $device5name=$("#device_name5");
+var $device5type=$("#device5_type");
 var $submitBtn = $("#submit");
 var $processList = $("#process-list");
 var $addprocess =$("#add-new-process");
@@ -89,26 +93,29 @@ var API_D = {
   }
 };
 // Script to print the devicetypes
-var refreshDeviceTypes = function() {
+var getDeviceTypes = function(divtype) {
+  
   API_D.getDevices().then(function(data) {
-    console.log(data);
-    var $devices= data.map(function(device) {
-      console.log ("******** DEVICE TYPES");
-      console.log(device);
-       var $a = $("<a>")
-        .text(device.DeviceTypeDescription)
-        .attr("href", "/process/" + device.id);
-
-       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text(device.DeviceTypeDescription); 
-      $a.append($button);
-      return $a;
+    console.log("****////");
+    divtype.empty();
+    var aux=("<select>"); 
+    $.each(data,function(i,val){
+      aux=aux.concat("<option>",val.DeviceTypeDescription);
     });
-    console.log("******** the appended code ***********");
-    console.log($devices);
-    $device1type.append($devices);
+    var aux=aux.concat("</select>");
+    console.log("aux: ",aux);
+    divtype.append(aux);
+    console.log(divtype); 
+    
   });
+};
+var refreshDeviceTypes=function(){
+   getDeviceTypes($device1type);
+   getDeviceTypes($device2type);
+   getDeviceTypes($device3type);
+   getDeviceTypes($device4type);
+   getDeviceTypes($device5type);
+  
 };
 
 
