@@ -23,4 +23,29 @@ module.exports = function(app) {
       res.json(dbProcess);
     });
   });
+ // ****************** DEVICE TYPES **************************
+ app.get("/api/device", function(req, res) {
+  db.Device.findAll({}).then(function(dbDevice) {
+    res.json(dbDevice);
+  });
+});
+
+// Create a new device type
+app.post("/api/device", function(req, res) {
+  console.log("los datos del post en la api");
+  console.log(req.body);
+  db.Device.create(req.body).then(function(dbDevice) {
+    res.json(dbDevice);
+  });
+});
+
+// Delete an device by id
+app.delete("/api/device/:id", function(req, res) {
+  db.Device.destroy({ where: { id: req.params.id } }).then(function(dbDevice) {
+    res.json(dbDevice);
+  });
+});
+
+
+
 };

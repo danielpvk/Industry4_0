@@ -2,6 +2,7 @@
 var $processText = $("#process-name");
 var $processDescription = $("#process-description");
 var $device1name=$("#device_name1");
+var $device1type=$("#device1_type");
 var $device2name=$("#device_name2");
 var $device3name=$("#device_name3");
 var $device4name=$("#device_name4");
@@ -38,6 +39,7 @@ var API = {
   }
 };
 
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -71,9 +73,50 @@ var handleFormSubmit = function(event) {
   $processDescription.val("");
 };
 
+// Script to retrieve de device type table
+var API_D = {
+  getDevices: function() {
+    return $.ajax({
+      url: "api/device",
+      type: "GET"
+    });
+  },
+  deleteExample: function(id) {
+    return $.ajax({
+      url: "api/device/" + id,
+      type: "DELETE"
+    }); 
+  }
+};
+// Script to print the devicetypes
+var refreshDeviceTypes = function() {
+  API_D.getDevices().then(function(data) {
+    console.log(data);
+    var $devices= data.map(function(device) {
+      console.log ("******** DEVICE TYPES");
+      console.log(device);
+       var $a = $("<a>")
+        .text(device.DeviceTypeDescription)
+        .attr("href", "/process/" + device.id);
 
+       var $button = $("<button>")
+        .addClass("btn btn-danger float-right delete")
+        .text(device.DeviceTypeDescription); 
+      $a.append($button);
+      return $a;
+    });
+    console.log("******** the appended code ***********");
+    console.log($devices);
+    $device1type.append($devices);
+  });
+};
+
+
+
+
+//Add the device types to each of the device_types divs
 
 // Add event listeners to the submit and delete buttons
+refreshDeviceTypes();
 $submitBtn.on("click", handleFormSubmit);
-$processList.on("click", ".delete", handleDeleteBtnClick);
 
