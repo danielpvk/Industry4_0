@@ -1,14 +1,14 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // Get all devices
   app.get("/device", function(req, res) {
     db.Device.findAll({}).then(function(dbDevice) {
       res.json(dbDevice);
     });
   });
 
-  // Create a new example
+  // Create a new device
   app.post("/device", function(req, res) {
     console.log("los datos del post en la api");
     console.log(req.body);
@@ -17,7 +17,7 @@ module.exports = function(app) {
     });
   });
 
-    // Load example page and pass in an device type id
+    // Load device page and pass in an device type id
   app.get("/device/:id", function(req, res) {
        db.Device.findOne({ where: { id: req.params.id } }).then(function(dbDevice) {
         res.render("device", {
@@ -26,10 +26,25 @@ module.exports = function(app) {
       });   
   });
   
+   app.get("/device/numserie/:numserie", function(req, res) {
+    db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
+        res.json(dbDevice);
+    });   
+    }); 
+
+  
+    app.get("/device/numserie-last/:numserie", function(req, res) {
+        db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
+            res.json(dbDevice[dbDevice.length-1]);
+        });   
+    }); 
+    
+        
+    
 
 
   // Delete an example by id
-  app.delete("/api/device/:id", function(req, res) {
+  app.delete("/device/:id", function(req, res) {
     db.DeviceType.destroy({ where: { id: req.params.id } }).then(function(dbDevice) {
       res.json(dbDevice);
     });
