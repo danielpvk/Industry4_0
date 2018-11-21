@@ -26,6 +26,21 @@ module.exports = function(app) {
       });   
   });
   
+   app.get("/device/numserie/:numserie", function(req, res) {
+    db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
+        res.json(dbDevice);
+    });   
+    }); 
+
+  
+    app.get("/device/numserie-last/:numserie", function(req, res) {
+        db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
+            res.json(dbDevice[dbDevice.length-1]);
+        });   
+    }); 
+    
+        
+    
 
 
   // Delete an example by id
