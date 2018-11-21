@@ -11,6 +11,11 @@ var $device4name=$("#device_name4");
 var $device4type=$("#device4_type");
 var $device5name=$("#device_name5");
 var $device5type=$("#device5_type");
+var $id1= $("#iddevice1");
+var $id2= $("#iddevice2");
+var $id3= $("#iddevice3");
+var $id4= $("#iddevice4");
+var $id5= $("#iddevice5");
 var $submitBtn = $("#submit");
 var $processList = $("#process-list");
 var $addprocess =$("#add-new-process");
@@ -56,18 +61,23 @@ var handleFormSubmit = function(event) {
     Device1_name: $device1name.val().trim(),
     Device1_type: $device1type.val(),
     Device1_type_description:$("#device1_type option:selected").text(),
+    IdDevice1: $id1.val(),
     Device2_name: $device2name.val().trim(),
     Device2_type: $device2type.val(),
     Device2_type_description:$("#device2_type option:selected").text(),
+    IdDevice2: $id2.val(),
     Device3_name: $device3name.val().trim(),
     Device3_type: $device3type.val(),
     Device3_type_description:$("#device3_type option:selected").text(),
+    IdDevice3: $id3.val(),
     Device4_name: $device4name.val().trim(),
     Device4_type: $device4type.val(),
     Device4_type_description:$("#device4_type option:selected").text(),
+    IdDevice4: $id4.val(),
     Device5_name: $device5name.val().trim(),
     Device5_type: $device5type.val(),
     Device5_type_description:$("#device5_type option:selected").text(),
+    IdDevice5: $id5.val(),
   };
   console.log("lo que lei de la forma")
   console.log(process);
@@ -92,13 +102,13 @@ var handleFormSubmit = function(event) {
 var API_D = {
   getDevices: function() {
     return $.ajax({
-      url: "api/device",
+      url: "api/devicetype",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/device/" + id,
+      url: "api/devicetype/" + id,
       type: "DELETE"
     }); 
   }
