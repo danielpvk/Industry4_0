@@ -5,21 +5,20 @@
         <div class="card-body">
           <h5 class="card-title">Process detail</h5>
           <p>
-            <strong>ID</strong>: {{process.id}}</p>
-          <p>
+            <strong>ID :</strong><strong id="id">{{process.id}}</strong></p>
           <p>
             <strong>Process_name</strong>: {{process.Process_name}}</p>
           <p>
             <strong>Description:</strong> {{process.Process_Description}}</p>
-            <strong>Device 1:</strong> {{process.Device1_name}}</p>
+          <p><strong>Device 1:</strong> {{process.Device1_name}}   Type:<b id="type1">{{process.Device1_type}}</b>  Serie:<b id="serial1">{{process.IdDevice1}}</b></p>
             <div id="div1"></div>
-            <strong>Device 2:</strong> {{process.Device2_name}}</p>
+          <p>  <strong>Device 2:</strong> {{process.Device2_name}}     Type: {{process.Device2_type}}</p>
             <div id="div2"></div>
-            <strong>Device 3:</strong> {{process.Device3_name}}</p>
+          <p>  <strong>Device 3:</strong> {{process.Device3_name}}     Type: {{process.Device3_type}}</p>
             <div id="div3"></div>
-            <strong>Device 4:</strong> {{process.Device4_name}}</p>
+          <p>  <strong>Device 4:</strong> {{process.Device4_name}}     Type: {{process.Device4_type}}</p>
             <div id="div4"></div>
-            <strong>Device 5:</strong> {{process.Device5_name}}</p>
+          <p>  <strong>Device 5:</strong> {{process.Device5_name}}     Type: {{process.Device5_type}}</p>
             <div id="div5"></div>
             <a href="/">← Back To Home</a>
         </div>
@@ -27,3 +26,5 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/process.js"></script>

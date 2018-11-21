@@ -25,7 +25,11 @@ module.exports = function(app) {
         });
       });   
   });
-  
+  app.get("/devicetype-raw/:id", function(req, res) {
+    db.DeviceType.findOne({ where: { id: req.params.id } }).then(function(dbDeviceType) {
+      res.json(dbDeviceType);
+   });   
+  });  
 
 
   // Delete an example by id
