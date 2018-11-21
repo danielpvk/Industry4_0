@@ -15,6 +15,9 @@ VALUES ("Motor 2hp",3,"Current consumption",5,14,"Temperature(C)",5,80,"vibratio
 INSERT INTO devicetypes (DeviceTypeDescription,Parameters_quantity,Parameter1_name,Parameter1_min_val,Parameter1_max_val,Parameter2_name,Parameter2_min_val,Parameter2_max_val,Parameter3_name,Parameter3_min_val,Parameter3_max_val)
 VALUES ("Motor 5hp",3,"Current consumption",12,22,"Temperature(C)",5,80,"vibration",0.01,0.05);
 
+INSERT INTO devicetypes (DeviceTypeDescription,Parameters_quantity,Parameter1_name,Parameter1_min_val,Parameter1_max_val,Parameter2_name,Parameter2_min_val,Parameter2_max_val)
+VALUES ("Temperature/humidity Sensor",1,"Temperature",180,220,"Humidity (%)",40,70);
+
 INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
 VALUES (15,12,1234);
 
