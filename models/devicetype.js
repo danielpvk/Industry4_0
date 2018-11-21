@@ -1,6 +1,6 @@
 
 module.exports =function(sequelize, DataTypes) {
-  var Device = sequelize.define("DeviceTypes", {
+  var DeviceType = sequelize.define("DeviceTypes", {
     DeviceTypeDescription: DataTypes.TEXT,
     Parameters_quantity: DataTypes.INTEGER,
     Parameter1_name: DataTypes.STRING,
@@ -19,5 +19,5 @@ module.exports =function(sequelize, DataTypes) {
     Parameter5_min_val: DataTypes.INTEGER,
     Parameter5_max_val: DataTypes.INTEGER,
   });
-  return Device;
+  return DeviceType;
 };

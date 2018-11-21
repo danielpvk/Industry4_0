@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `Industry4_0`.`Processes` (
   `IdDevice2` INT NULL,
   `Device3_name` VARCHAR(45) NULL,
   `Device3_type` INT NULL,
-  `IdDevice3` VARCHAR(45) NULL,
+  `IdDevice3` INT NULL,
   `Device4_name` VARCHAR(45) NULL,
   `Device4_type` INT NULL,
   `IdDevice4` VARCHAR(45) NULL,
@@ -22,12 +22,17 @@ CREATE TABLE IF NOT EXISTS `Industry4_0`.`Processes` (
   `IdDevice5` VARCHAR(45) NULL,
   `createdAt` DATE NULL,
   `updatedAt` DATE NULL,
+  `Device1_type_description` VARCHAR(45) NULL,
+  `Device2_type_description` VARCHAR(45) NULL,
+  `Device3_type_description` VARCHAR(45) NULL,
+  `Device4_type_description` VARCHAR(45) NULL,
+  `Device5_type_description` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `Industry4_0`.`DeviceTypes` (
-  `IdDevice_type` INT NOT NULL AUTO_INCREMENT,
+  `Id` INT NOT NULL AUTO_INCREMENT,
   `DeviceTypeDescription` VARCHAR(45) NULL,
   `Parameters_quantity` INT NULL,
   `Parameter1_name` VARCHAR(45) NULL,
@@ -47,5 +52,22 @@ CREATE TABLE IF NOT EXISTS `Industry4_0`.`DeviceTypes` (
   `Parameter5_max_val` FLOAT NULL,
   `createdAt` DATE NULL,
   `updatedAt` DATE NULL,
-  PRIMARY KEY (`IdDevice_type`))
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `Industry4_0`.`Device` (
+  `ID` INT NOT NULL,
+  `LectureP1` FLOAT NULL,
+  `TimeLectureP1` DATETIME NULL,
+  `LectureP2` FLOAT NULL,
+  `TimeLectureP2` DATETIME NULL,
+  `LectureP3` FLOAT NULL,
+  `TimeLectureP3` DATETIME NULL,
+  `LectureP4` FLOAT NULL,
+  `TimeLectureP4` DATETIME NULL,
+  `LectureP5` FLOAT NULL,
+  `TimeLectureP5` DATETIME NULL,
+    `createdAt` DATE NULL,
+  `updatedAt` DATE NULL,
+  PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
