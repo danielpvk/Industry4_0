@@ -39,6 +39,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Device=require("../models/devicetype.js")(sequelize,Sequelize);
+db.DeviceType=require("../models/devicetype.js")(sequelize,Sequelize);
 db.Process=require("../models/example.js")(sequelize,Sequelize);
 module.exports = db;
