@@ -1,4 +1,10 @@
 // Get references to page elements
+$.getScript("https://www.gstatic.com/charts/loader.js", function(){
+
+    alert("Script loaded but not necessarily executed.");
+ 
+ });
+
 var $div1=$("#div1");
 var $div2=$("#div2");
 var $div3=$("#div3");
