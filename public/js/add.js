@@ -56,6 +56,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var process = {
+  
     Process_name: $processText.val().trim(),
     Process_Description: $processDescription.val().trim(),
     Device1_name: $device1name.val().trim(),
