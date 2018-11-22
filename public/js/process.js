@@ -6,10 +6,15 @@ $.getScript("https://www.gstatic.com/charts/loader.js", function(){
  });
 
 var $div1=$("#div1");
+var $d1=$("#d1");
 var $div2=$("#div2");
+var $d2=$("#d2");
 var $div3=$("#div3");
+var $d3=$("#d3");
 var $div4=$("#div4");
+var $d4=$("#d4");
 var $div5=$("#div5");
+var $d5=$("#d5");
 var $id=$("#id");
 var $idD1=$("#serial1");
 var $type1=$("#type1");
@@ -117,13 +122,41 @@ var getDeviceLastLecture = function(divtype,serie,type) {
 };
 
 //Add the device types to each of the device_types divs
+var ifParameter=function(id,divData,divText,typeD){
+    if (id!=0){
+        getDeviceLastLecture(divData,id,typeD);
+    }
+    else
+    {
+        divText.html("");
+    }
+}
 
 var refreshDeviceLectures=function(){
-    getDeviceLastLecture($div1,$idD1.text(),$type1.text());
+  /*   if ($idD1.text()!=0){
+        getDeviceLastLecture($div1,$idD1.text(),$type1.text());
+    }
+    if ($idD2.text()!=0){
+        getDeviceLastLecture($div2,$idD2.text(),$type2.text());
+    }
+    else
+    {$d2.empty();}
+    if ($idD3.text()!=0){
+        console.log("idD3=",$idD3);
+        getDeviceLastLecture($div2,$idD2.text(),$type2.text());
+    }
+    else
+    {
+        console.log("idD3=",$idD3);
+        $d3.html("");
+    }
     getDeviceLastLecture($div2,$idD2.text(),$type2.text());
-    getDeviceLastLecture($div2,$idD2.text(),$type2.text());
-    getDeviceLastLecture($div2,$idD2.text(),$type2.text());
-    getDeviceLastLecture($div2,$idD2.text(),$type2.text());
+    getDeviceLastLecture($div2,$idD2.text(),$type2.text()); */
+    ifParameter($idD1.text(),$div1,$d1,$type1.text());
+    ifParameter($idD2.text(),$div2,$d2,$type2.text());
+    ifParameter($idD3.text(),$div3,$d3,$type3.text());
+    ifParameter($idD4.text(),$div4,$d4,$type4.text());
+    ifParameter($idD5.text(),$div5,$d5,$type5.text());
 };
 
 refreshDeviceLectures();
