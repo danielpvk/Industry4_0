@@ -160,12 +160,19 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                 }
                 console.log("parametro cero:", parameters[0]);
                 console.log("parametro cero:", lectures[1]);
-                var a=[parameters[0], lectures[1]];
+                var gauges=[];
+                for (var h=0;h<parameters.length;h++){
+                    gauges.push(parameters[h],lectures[h+1]);
+                }
+                  google.charts.setOnLoadCallback(function(){
+                    drawChart(gauges,max[h],"graph1")});
+                 
+               /*  var a=[parameters[0], lectures[1]];
                 var b=[parameters[1], lectures[2]];
                 var c=[parameters[2], lectures[3]];
                 google.charts.setOnLoadCallback(function(){
-                  drawChart(a,b,c);
-                });
+                  drawChart(a,b,c); 
+                });*/
             });
     });
 };
@@ -201,13 +208,12 @@ var c=['Memo', 70];
   drawChart(a,b,c);
 }); */
 
-function drawChart(d,e,) {
-        console.log(d);
-        console.log(e);
+function drawChart(parametro,lectura,maximo,graphDiv) {
+        console.log("draw",parametro);
+        console.log("draw lecture",lectura);
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          d,
-          e,
+          [parametro,lectura]
           
           /* ['Memory', 80],
           ['CPU', 55],
@@ -218,25 +224,14 @@ function drawChart(d,e,) {
           width: 400, height: 120,
           redFrom: 90, redTo: 100,
           yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
+          minorTicks: 5,
+          max:maximo
         };
 
-        var chart = new google.visualization.Gauge(document.getElementById('graph1'));
+        var chart = new google.visualization.Gauge(document.getElementById(graphDiv));
 
         chart.draw(data, options);
 
-        setInterval(function() {
-          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
-        }, 26000);
       }
 
 
