@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
+    <div class="col-12 offset-2">
+      <div class="card mt-10">
         <div class="card-body">
           <h5 class="card-title">Process detail</h5>
           <p>
@@ -14,6 +14,13 @@
              <p><strong>Device 1:</strong> {{process.Device1_name}}   Type:<b id="type1">{{process.Device1_type}}</b>  Serie:<b id="serial1">{{process.IdDevice1}}</b></p>
           </div>
           <div id="div1"></div>
+          <div class="row">
+              <div class="col-2" id="graph1_1"></div>
+              <div class="col-2" id="graph1_2"></div>
+              <div class="col-2" id="graph1_3"></div>
+              <div class="col-2" id="graph1_4"></div>
+              <div class="col-2" id="graph1_5"></div>
+          </div>
           <div id="graph1"></div>
           <div id="d2">
             <p>  <strong>Device 2:</strong> {{process.Device2_name}}   Type:<b id="type2">{{process.Device2_type}}</b>  Serie:<b id="serial2">{{process.IdDevice2}}</b></p>

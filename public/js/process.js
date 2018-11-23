@@ -55,49 +55,6 @@ var API_D = {
     },
   };
 
-  function drawChart(parametersNames,actualValues,minValues,maxValues) {
-        var graphic=[];
-        var graphics=[];
-        for (var i=0;i<parametersNames.length;i++){
-            graphic=[];
-            graphic.push(parametersNames[i],actualValues[i]);
-            graphics.push(graphic);
-            console.log(graphic);
-            console.log (graphics);
-        }
-        
-        var data = google.visualization.arrayToDataTable([
-        ['Label', 'Value'],
-        ['Memory', 80],
-        ['CPU', 55],
-        ['Network', 68]
-        ]);
-
-        var options = {
-        width: 400, height: 120,
-        redFrom: 90, redTo: 100,
-        yellowFrom:75, yellowTo: 90,
-        minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('graph1'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-        data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-        chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-        data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-        chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-        data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-        chart.draw(data, options);
-        }, 26000);
-  }
-
  
 // Script to print the lectures of the devices
 var getDeviceLastLecture = function(divtype,serie,type) {
@@ -162,17 +119,31 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                 console.log("parametro cero:", lectures[1]);
                 var gauges=[];
                 for (var h=0;h<parameters.length;h++){
-                    gauges.push(parameters[h],lectures[h+1]);
+                    gauges.push([parameters[h],lectures[h+1]]);
                 }
-                  google.charts.setOnLoadCallback(function(){
-                    drawChart(gauges,max[h],"graph1")});
+                switch (gauges.length) {
+                    case (0): ;
+                }
+                 /* for (var k=0;k<gauges.length;k++){
+                    console.log("for k", gauges[k]);
+                    console.log("graph: ","graph1_"+(k+1));
+     /*                google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[k],max[k],"graph1_"+(k+1))}); 
+                    google.charts.setOnLoadCallback(function(){
+                    drawChart(gauges[k],max[h],"graph1_"+(k+1));});     
+                } */
                  
-               /*  var a=[parameters[0], lectures[1]];
-                var b=[parameters[1], lectures[2]];
-                var c=[parameters[2], lectures[3]];
+                /* google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges,max[h],"graph1_2")}); */
+                 
+              /*   var a=[parameters[0], lectures[1]];
+                var b=50;
+                var c="graph1_1";
                 google.charts.setOnLoadCallback(function(){
                   drawChart(a,b,c); 
-                });*/
+                }); */
+                google.charts.setOnLoadCallback(function(){
+                    drawChart(gauges,max,"graph1_2")});
             });
     });
 };
@@ -201,23 +172,38 @@ var refreshDeviceLectures=function(){
 google.charts.load('current', {'packages':['gauge']});
 refreshDeviceLectures();
 
-var a=['Memory', 80];
-var b=['Memor', 60];
-var c=['Memo', 70];
 /* google.charts.setOnLoadCallback(function(){
   drawChart(a,b,c);
 }); */
 
-function drawChart(parametro,lectura,maximo,graphDiv) {
-        console.log("draw",parametro);
-        console.log("draw lecture",lectura);
+function drawChart(gauges,maximo,graphDiv) {
+        console.log("draw 0",gauges);
+        console.log("max 0",maximo);
+        switch (gauges.length){
+            case (1): var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        gauges[0]
+                    ]);break;
+            case (2): var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        gauges[0],gauges[1]
+                    ]);break; 
+            case (3): var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        gauges[0]
+                    ]);break;
+            case (4): var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        gauges[0],gauges[1]
+                    ]);break;
+            case (5): var data = google.visualization.arrayToDataTable([
+                        ['Label', 'Value'],
+                        gauges[0]
+                    ]);break;                             
+        }
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          [parametro,lectura]
-          
-          /* ['Memory', 80],
-          ['CPU', 55],
-          ['Network', 68] */
+          gauges[0],gauges[1]
         ]);
 
         var options = {
