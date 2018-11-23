@@ -1,21 +1,22 @@
 {
-    "development": {
-        "username": "root",
-        "password": "root",
-        "database": "Industry4_0",
-        "host": "localhost",
-        "dialect": "mysql"
-    },
-    "test": {
-        "username": "root",
-        "password": "ZAC.239.st",
-        "database": "Industry4_0",
-        "host": "localhost",
-        "dialect": "mysql",
-        "logging": false
-    },
-    "production": {
-        "use_env_variable": "JAWSDB_URL",
-        "dialect": "mysql"
-    }
+  "development": {
+    "username": "bootcamp",
+    "password": "bootcamp",
+    "database": "Industry4_0",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "bootcamp",
+    "password": "bootcamp",
+    "database": "Industry4_0",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
 }
+

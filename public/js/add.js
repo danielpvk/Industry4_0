@@ -56,6 +56,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var process = {
+  
     Process_name: $processText.val().trim(),
     Process_Description: $processDescription.val().trim(),
     Device1_name: $device1name.val().trim(),
@@ -143,32 +144,6 @@ var refreshDeviceTypes=function(){
   
 };
 
-/* $device1type.change(function() {
-  var select = $device1type.val();
-  console.log("select :",$device1type.val());
-  devicetypes[0]=select;
-});
-$device2type.change(function() {
-  var select = $device2type.val();
-  console.log("select :",$device2type.val());
-  devicetypes[1]=select;
-});
-$device3type.change(function() {
-  var select = $device3type.val();
-  console.log("select :",$device3type.val());
-  devicetypes[2]=select;
-});
-$device4type.change(function() {
-  var select = $device4type.val();
-  console.log("select :",$device4type.val());
-  devicetypes[3]=select;
-});
-$device5type.change(function() {
-  var select = $device5type.val();
-  console.log("select :",$device5type.val());
-  devicetypes[4]=select;
-}); */
-// Add event listeners to the submit and delete buttons
 refreshDeviceTypes();
 $submitBtn.on("click", handleFormSubmit);
 

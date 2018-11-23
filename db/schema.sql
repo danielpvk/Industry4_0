@@ -55,19 +55,16 @@ CREATE TABLE IF NOT EXISTS `Industry4_0`.`DeviceTypes` (
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Industry4_0`.`Device` (
-  `ID` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `Industry4_0`.`Devices` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `LectureP1` FLOAT NULL,
-  `TimeLectureP1` DATETIME NULL,
+  `createdAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `LectureP2` FLOAT NULL,
-  `TimeLectureP2` DATETIME NULL,
+   `updatedAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
   `LectureP3` FLOAT NULL,
-  `TimeLectureP3` DATETIME NULL,
   `LectureP4` FLOAT NULL,
-  `TimeLectureP4` DATETIME NULL,
   `LectureP5` FLOAT NULL,
-  `TimeLectureP5` DATETIME NULL,
-    `createdAt` DATE NULL,
-  `updatedAt` DATE NULL,
-  PRIMARY KEY (`Id`))
-ENGINE = InnoDB;
+  `NumSerie` INT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB

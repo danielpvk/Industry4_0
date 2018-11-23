@@ -41,4 +41,5 @@ db.Sequelize = Sequelize;
 
 db.DeviceType=require("../models/devicetype.js")(sequelize,Sequelize);
 db.Process=require("../models/example.js")(sequelize,Sequelize);
+db.Device=require("../models/device.js")(sequelize,Sequelize);
 module.exports = db;
