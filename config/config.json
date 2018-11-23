@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "bootcamp",
+    "password": "bootcamp",
     "database": "Industry4_0",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
+    "username": "bootcamp",
+    "password": "bootcamp",
     "database": "Industry4_0",
     "host": "localhost",
     "dialect": "mysql",
