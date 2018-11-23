@@ -1,6 +1,4 @@
 // Get references to page elements
-
-
 var $div1=$("#div1");
 var $d1=$("#d1");
 var $div2=$("#div2");
@@ -55,55 +53,12 @@ var API_D = {
     },
   };
 
-  function drawChart(parametersNames,actualValues,minValues,maxValues) {
-        var graphic=[];
-        var graphics=[];
-        for (var i=0;i<parametersNames.length;i++){
-            graphic=[];
-            graphic.push(parametersNames[i],actualValues[i]);
-            graphics.push(graphic);
-            console.log(graphic);
-            console.log (graphics);
-        }
-        
-        var data = google.visualization.arrayToDataTable([
-        ['Label', 'Value'],
-        ['Memory', 80],
-        ['CPU', 55],
-        ['Network', 68]
-        ]);
-
-        var options = {
-        width: 400, height: 120,
-        redFrom: 90, redTo: 100,
-        yellowFrom:75, yellowTo: 90,
-        minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('graph1'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-        data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-        chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-        data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-        chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-        data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-        chart.draw(data, options);
-        }, 26000);
-  }
-
  
 // Script to print the lectures of the devices
-var getDeviceLastLecture = function(divtype,serie,type) {
-  console.log("entre al get last lecture",serie,"tipo",type);
+var getDeviceLastLecture = function(divtype,serie,type,graphD) {
+  
     API_D.getDevices(type).then(function(data1){
-        console.log(data1);
+       
         var parameters=[];
         var min=[];
         var max=[];
@@ -133,7 +88,7 @@ var getDeviceLastLecture = function(divtype,serie,type) {
             max.push(data1.Parameter5_max_val);
         }
         API_Device.getDeviceNumSerieLast(serie).then(function(data) {
-                console.log("****////");
+        
                 divtype.empty();
                 var lectures=[];
                 lectures.push(data.createdAt);
@@ -156,24 +111,43 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                     aux="";
                     var aux="     Actual "+parameters[j]+" :"+lectures[j+1]+"<br>";
                     divtype.append(aux);
-                    console.log("aux: ",aux);
                 }
-                console.log("parametro cero:", parameters[0]);
-                console.log("parametro cero:", lectures[1]);
-                var a=[parameters[0], lectures[1]];
-                var b=[parameters[1], lectures[2]];
-                var c=[parameters[2], lectures[3]];
-                google.charts.setOnLoadCallback(function(){
-                  drawChart(a,b,c);
-                });
-            });
+     
+                var gauges=[];
+                for (var h=0;h<parameters.length;h++){
+                    gauges.push([parameters[h],lectures[h+1]]);
+                }
+                switch (gauges.length) {
+                    case (0): ;
+                }
+                if (gauges[0]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[0],max[0],graphD+"_1")});
+                }
+                if (gauges[1]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[1],max[1],graphD+"_2")});
+                    }
+                if (gauges[2]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[2],max[2],graphD+"_3")});
+                    }
+                if (gauges[3]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[3],max[3],graphD+"_4")});
+                    }
+                if (gauges[4]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[4],max[4],graphD+"_5")});
+                    }
+            });//api_d closing bracket
     });
 };
 
 //check if the parameter exist, if the parameter=0, cleans the screen in the parameter div
-var ifParameter=function(id,divData,divText,typeD){
+var ifParameter=function(id,divData,divText,typeD,g){
     if (id!=0){
-        getDeviceLastLecture(divData,id,typeD);
+        getDeviceLastLecture(divData,id,typeD,g);
     }
     else
     {
@@ -182,61 +156,48 @@ var ifParameter=function(id,divData,divText,typeD){
 }
 //Call the function to fill the data of each parameter
 var refreshDeviceLectures=function(){
-    ifParameter($idD1.text(),$div1,$d1,$type1.text());
+    ifParameter($idD1.text(),$div1,$d1,$type1.text(),"graph1");
     
-    ifParameter($idD2.text(),$div2,$d2,$type2.text());
-    ifParameter($idD3.text(),$div3,$d3,$type3.text());
-    ifParameter($idD4.text(),$div4,$d4,$type4.text());
-    ifParameter($idD5.text(),$div5,$d5,$type5.text());
+    ifParameter($idD2.text(),$div2,$d2,$type2.text(),"graph2");
+    ifParameter($idD3.text(),$div3,$d3,$type3.text(),"graph3");
+    ifParameter($idD4.text(),$div4,$d4,$type4.text(),"graph4");
+    ifParameter($idD5.text(),$div5,$d5,$type5.text(),"graph5");
 };
 //google.charts.load('current', {'packages':['gauge']});
 //google.charts.setOnLoadCallback(drawChart());
 google.charts.load('current', {'packages':['gauge']});
 refreshDeviceLectures();
 
-var a=['Memory', 80];
-var b=['Memor', 60];
-var c=['Memo', 70];
 /* google.charts.setOnLoadCallback(function(){
   drawChart(a,b,c);
 }); */
 
-function drawChart(d,e,) {
-        console.log(d);
-        console.log(e);
+function drawChart(gauges,maximo,graphDiv) {
+        console.log("draw 0",gauges);
+        console.log("max 0",maximo);
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          d,
-          e,
-          
-          /* ['Memory', 80],
-          ['CPU', 55],
-          ['Network', 68] */
+          gauges
         ]);
 
         var options = {
           width: 400, height: 120,
           redFrom: 90, redTo: 100,
           yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
+          minorTicks: 5,
+          max:maximo,
+          greenFrom:maximo*0.40,
+          greenTo:maximo*0.80,
+          yellowFrom:maximo*0.80,
+          yellowTo:maximo*0.90,
+          redFrom:maximo*.90,
+          redTo:maximo
         };
 
-        var chart = new google.visualization.Gauge(document.getElementById('graph1'));
+        var chart = new google.visualization.Gauge(document.getElementById(graphDiv));
 
         chart.draw(data, options);
 
-        setInterval(function() {
-          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
-        }, 26000);
       }
 
 
