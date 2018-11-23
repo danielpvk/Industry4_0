@@ -32,14 +32,18 @@ module.exports = function(app) {
     });   
     }); 
 
-  
+/*   
     app.get("/device/numserie-last/:numserie", function(req, res) {
         db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
             res.json(dbDevice[dbDevice.length-1]);
         });   
     }); 
-    
-        
+     */
+    app.get("/device/numserie-last/:numserie", function(req, res) {
+      db.Device.findOne({ where: { NumSerie: req.params.numserie },order: [ [ 'createdAt', 'DESC' ]]}).then(function(dbDevice) {
+          res.json(dbDevice);
+      });   
+  });       
     
 
 
