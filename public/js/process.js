@@ -40,6 +40,12 @@ var API_Device = {
         url: "/device/numserie-last/"+numSerie,
         type: "GET"
       }); 
+  },
+  getDeviceNumSerieLast100:function(numSerie){
+    return $.ajax({
+        url: "/device/numserie-last100/"+numSerie,
+        type: "GET"
+      });
   }
 }
 
@@ -163,19 +169,15 @@ var refreshDeviceLectures=function(){
     ifParameter($idD4.text(),$div4,$d4,$type4.text(),"graph4");
     ifParameter($idD5.text(),$div5,$d5,$type5.text(),"graph5");
 };
-//google.charts.load('current', {'packages':['gauge']});
-//google.charts.setOnLoadCallback(drawChart());
 google.charts.load('current', {'packages':['gauge']});
 refreshDeviceLectures();
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(initialize);
 
-/* google.charts.setOnLoadCallback(function(){
-  drawChart(a,b,c);
-}); */
+
 
 function drawChart(gauges,maximo,graphDiv) {
-        console.log("draw 0",gauges);
-        console.log("max 0",maximo);
-        var data = google.visualization.arrayToDataTable([
+         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           gauges
         ]);
@@ -197,8 +199,51 @@ function drawChart(gauges,maximo,graphDiv) {
         var chart = new google.visualization.Gauge(document.getElementById(graphDiv));
 
         chart.draw(data, options);
+}//the end of drawchart gauge
 
-      }
+function initialize() {  //a function to initialize dinamic charts
+    var opts = {sendMethod: 'auto'};
+    // Replace the data source URL on next line with your data source URL.
+    API_Device.getDeviceNumSerieLast100(1234).then(function(data) {
+        console.log("last 100",data);
+        var table=new Array();
+        table.push(['Age', 'Weight']);
+        for (var i=0;i<data.length;i++){
+            table.push(["lectura",data[i].LectureP1]);
+        }
+        console.log("tabla",table);
+        var data2 = google.visualization.arrayToDataTable(table,false);
+        console.log("********",data2);
+      
+          var options = {
+            width: 200,
+            height: 300,
+            title: 'Age vs. Weight comparison',
+            hAxis: {title: 'Age', minValue: 0, maxValue: 30},
+            vAxis: {title: 'Weight', minValue: 0, maxValue: 30},
+            legend: 'none'
+          };
 
+      
+          var chart = new google.visualization.ScatterChart(document.getElementById("dispersion1_1"));
+
+          chart.draw(data2, options);
+
+    });
+   
+    
+  }
+
+  function handleQueryResponse(response) {  // a function to generate the dinamic query table
+
+    if (response.isError()) {
+      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      return;
+    }
+  
+    var data = response.getDataTable();
+    var chart = new google.visualization.PieChart(document.getElementById("dispersion3_1"));
+    chart.draw(data, {width: 400, height: 240, is3D: true});
+  }
 
 
