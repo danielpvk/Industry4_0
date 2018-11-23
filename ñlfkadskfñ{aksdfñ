@@ -1,0 +1,345 @@
+[33mcommit bbc0ae507d048d26e491b13aa6ec155127c6ae80[m[33m ([m[1;36mHEAD -> [m[1;32mamazonServer[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Nosh41 <33821532+Nosh41@users.noreply.github.com>
+Date:   Thu Nov 22 20:38:05 2018 -0600
+
+    Update index.handlebars
+
+[33mcommit a44a719dc4ca45fca812ec6bebf97c98cda00854[m
+Merge: dddbb86 f0f0b30
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 19:40:03 2018 -0600
+
+    Merge pull request #11 from danielpvk/amazonServer
+    
+    first gauge test
+
+[33mcommit f0f0b30186d7bd9942e3e5e924fe9b9668265c0e[m[33m ([m[1;31morigin/amazonServer[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 19:39:16 2018 -0600
+
+    first gauge test
+
+[33mcommit dddbb867bf4edaf82d8fc09de82e46180b399fcc[m
+Merge: eb1e027 d824fe8
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 19:38:18 2018 -0600
+
+    Merge pull request #10 from danielpvk/JORTEGA
+    
+    Jortega
+
+[33mcommit d824fe84b4f2b37f0c79a0ec5e5167c2397ca342[m
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Thu Nov 22 19:36:17 2018 -0600
+
+    ruta alexa corejida
+
+[33mcommit 39cb78cff07c73ec0cb5cc67a48d307caac1b05e[m
+Merge: c8e9395 eb1e027
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Thu Nov 22 19:32:14 2018 -0600
+
+    Merge branch 'master' of github.com:danielpvk/Industry4_0 into JORTEGA
+
+[33mcommit eb1e02728e00e8f040eb7f5e381b42130ec35e23[m
+Merge: f2e97ef 27f846b
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 19:24:22 2018 -0600
+
+    Merge pull request #9 from danielpvk/amazonServer
+    
+    alexa route fixed
+
+[33mcommit 27f846bc31f15782fac5184e4fbbc8ab208239e1[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 19:23:32 2018 -0600
+
+    alexa route fixed
+
+[33mcommit f2e97efbd6c1f84afcfba4f88dea54d5dd306441[m
+Merge: 1cc656c b57cfbc
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:56:43 2018 -0600
+
+    Merge pull request #8 from danielpvk/amazonServer
+    
+    Amazon server port 80
+
+[33mcommit b57cfbc1ffdef2ef359a4f0b4019b547d1d573a7[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:55:52 2018 -0600
+
+    port 80
+
+[33mcommit 1e857fa6fc35395a26e571ebb6448377676a58c1[m[33m ([m[1;31morigin/addprocess[m[33m, [m[1;32maddprocess[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:54:02 2018 -0600
+
+    alexa routes
+
+[33mcommit 1cc656c28425ad8486b85f2e4f9bba0b27a15ca4[m
+Merge: f694dfe 7c46925
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:51:11 2018 -0600
+
+    Merge pull request #7 from danielpvk/addprocess
+    
+    find last simplified
+
+[33mcommit 7c46925302fa7c364c5110084cd6bb981308915b[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:50:01 2018 -0600
+
+    find last simplified
+
+[33mcommit f694dfebe3161270e07f589c439f911938080f52[m
+Merge: 66dc41f 5970470
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:31:46 2018 -0600
+
+    Merge pull request #6 from danielpvk/addprocess
+    
+    Addprocess process without unused devices
+
+[33mcommit 5970470aaeff6b08edc2238a793d0d75eb5f5b31[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 18:30:17 2018 -0600
+
+    version to merge without gauge
+
+[33mcommit c8e93958836a6e74a0783e4c403c5d5be0f76cf7[m
+Merge: e43226b 66dc41f
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Thu Nov 22 13:43:35 2018 -0600
+
+    Merge branch 'master' of github.com:danielpvk/Industry4_0 into JORTEGA
+
+[33mcommit fc1ecd81827c8f966f288c883a43ec87214637a5[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 08:12:04 2018 -0600
+
+    process without unused devices
+
+[33mcommit eacc716ad0b99b8fcc0216d7c34356040ddc5f86[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 07:38:41 2018 -0600
+
+    process updated for varios devices
+
+[33mcommit 66dc41f209b92bd94ca37c55993ada5250b58755[m
+Merge: 2c09123 230d8f5
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Thu Nov 22 07:21:55 2018 -0600
+
+    Merge pull request #5 from danielpvk/addprocess
+    
+    reading all elements in the process file
+
+[33mcommit 230d8f5e1dc2ccc575cc0c8a99dedbe6984285fe[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 22 07:19:47 2018 -0600
+
+    reading all elements in the process file
+
+[33mcommit 2c09123281b852c0f489a6b18208627451e46036[m
+Merge: b6a888c a40cad2
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Wed Nov 21 10:33:44 2018 -0600
+
+    Merge pull request #4 from danielpvk/addprocess
+    
+    relation between devices and process
+
+[33mcommit a40cad2e13d018d3fefd88aa78822f22963ef5ce[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Wed Nov 21 10:33:08 2018 -0600
+
+    relation between devices and process
+
+[33mcommit e43226b8659de4fa836749567e1dc85c0f1f2334[m
+Merge: 07e9b46 b6a888c
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Tue Nov 20 21:05:40 2018 -0600
+
+    Merge branch 'master' of github.com:danielpvk/Industry4_0 into JORTEGA
+
+[33mcommit b6a888c77da5bf96e18931681707acb76adda240[m
+Merge: c17a0ab 0160cdc
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Tue Nov 20 20:54:49 2018 -0600
+
+    Merge pull request #3 from danielpvk/addprocess
+    
+    Addprocess with device routes v1
+
+[33mcommit 0160cdc574d36e96f317ad011340b463a1946e3e[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 20:52:05 2018 -0600
+
+    device routes v1
+
+[33mcommit 40902c4481be7abe10ff793a01cc91fe9e2b0f0b[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 20:16:23 2018 -0600
+
+    device routes ready
+
+[33mcommit 07e9b46f1b87ea98b5e89e4d9065b23a33214da2[m
+Merge: 26228fd c17a0ab
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Tue Nov 20 18:54:57 2018 -0600
+
+    Merge branch 'master' of github.com:danielpvk/Industry4_0 into JORTEGA
+
+[33mcommit c17a0ab5bba1f70b4e14bcac643128a12e4d0716[m
+Merge: e82f6d3 d3396c1
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Tue Nov 20 18:53:57 2018 -0600
+
+    Merge pull request #2 from danielpvk/addprocess
+    
+    device types and processes fixed, next step devices definition
+
+[33mcommit d3396c14674ce42bd8f6a4d80506f7d8e5fce7be[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 18:52:40 2018 -0600
+
+    device types and processes fixed, next step devices definition
+
+[33mcommit 26228fdb2335446434a3e1e154a1ac18c7d9cec1[m
+Merge: 33c6c86 e82f6d3
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Tue Nov 20 17:39:00 2018 -0600
+
+    backup
+
+[33mcommit 33c6c8645f8383b8acb659322a8f548c14353d5f[m
+Author: SebastianOrtega <sortega@moviltrack.com>
+Date:   Tue Nov 20 17:37:19 2018 -0600
+
+    backup
+
+[33mcommit e82f6d375f646a7efdf696c522a17955cf57f1a8[m
+Merge: e9fccf1 8518993
+Author: danielpvk <danielpvk@gmail.com>
+Date:   Tue Nov 20 15:06:20 2018 -0600
+
+    Merge pull request #1 from danielpvk/addprocess
+    
+    Addprocess
+
+[33mcommit 8518993dd99bd794a407d6484f736c5e62627c82[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 12:11:39 2018 -0600
+
+    process add ready, next step device monitor
+
+[33mcommit 177355b48fa419912dd5419248ac6fb4aad43ecf[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 09:06:01 2018 -0600
+
+    add new process table with device types
+
+[33mcommit 83e5fdf6fd55d314f69cb4690ed404b1cde6ea8f[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 07:30:54 2018 -0600
+
+    first try of devicetypes selected list
+
+[33mcommit 49bb0ef78fed2a9d1e7adb8843655bc2b1833adc[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 06:45:34 2018 -0600
+
+    delete fixed
+
+[33mcommit 7a9a6bef574e2c3930bb0c021ad87019db60c54a[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Tue Nov 20 06:36:23 2018 -0600
+
+    the device render ready
+
+[33mcommit 8024142ed81d5b3a9db92319a790d9e9701e89a0[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Mon Nov 19 22:48:54 2018 -0600
+
+    finally two tables
+
+[33mcommit 9858f2ce06977a77bdb6141573c75f5ca0304494[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Mon Nov 19 17:13:48 2018 -0600
+
+    Revert "add process complejo"
+    
+    This reverts commit e31548d18079a2183f2ffb7ad38f2656066e0dd8.
+
+[33mcommit e31548d18079a2183f2ffb7ad38f2656066e0dd8[m[33m ([m[1;31morigin/modificacion[m[33m, [m[1;32mmodificacion[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Mon Nov 19 16:59:16 2018 -0600
+
+    add process complejo
+
+[33mcommit 0134fca7cc69eb7294b6361beb19eebc6deec22c[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Mon Nov 19 10:31:08 2018 -0600
+
+    add process functionality
+
+[33mcommit 248cc16c90ae13db13cada8980a108a9d5b5d40e[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Mon Nov 19 09:08:50 2018 -0600
+
+    front page just with list of processes and add new process
+
+[33mcommit 58dba79866cc97252dbfda67d5cd694ee8db7de2[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 18:39:30 2018 -0600
+
+    add consult and delete process -basic version ready
+
+[33mcommit cb281234b6038086c3afb53a44b768020a6086a7[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 17:56:51 2018 -0600
+
+    consulta individual de proceso lista
+
+[33mcommit c85cff9827821e839615aedaadd73b7ea344a700[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 17:13:44 2018 -0600
+
+    process get working
+
+[33mcommit c1528f165eb59dfa1f24672b1d79a948596c3287[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 16:50:28 2018 -0600
+
+    captura de proceso funcionando, faltan campos
+
+[33mcommit 2dd4b3d406533adc2c5092868e257ab37b8ee5e6[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 14:37:53 2018 -0600
+
+    first proccess added
+
+[33mcommit 7e4bdae2dd874212eb0906a218f8054d5b700a92[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 14:08:33 2018 -0600
+
+    index html getting process not example
+
+[33mcommit 5a1f77ba04bc4fca35321f03460f08e312f58b8a[m[33m ([m[1;32mdanielpv[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 13:56:41 2018 -0600
+
+    example running
+
+[33mcommit 0809bb1987c997dce39a1ec4403d7fe6da7d6c79[m[33m ([m[1;31morigin/danielpv[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Sat Nov 17 13:45:41 2018 -0600
+
+    compare
+
+[33mcommit e9fccf1957855d70821d1f61320db2932aae0b3c[m[33m ([m[1;32mmaster[m[33m)[m
+Author: danielpv <danielpvk@gmail.com>
+Date:   Thu Nov 15 19:22:22 2018 -0600
+
+    empty layout
