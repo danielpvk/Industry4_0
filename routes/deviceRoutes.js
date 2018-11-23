@@ -42,7 +42,38 @@ module.exports = function(app) {
     app.get("/device/numserie-last/:numserie", function(req, res) {
       db.Device.findOne({ where: { NumSerie: req.params.numserie },order: [ [ 'createdAt', 'DESC' ]]}).then(function(dbDevice) {
           res.json(dbDevice);
-      });   
+      });  
+      
+    ///***** the ALEXA ROUTES ******** */
+    app.post("/alexa", function(req, res) {
+      db.Device.findOne({
+        limit: 1,
+        order: [["id", "DESC"]]
+      }).then(function(dbDevice) {
+        console.log("Entro una solicitud de Alexa");
+        console.log(req.body);
+        console.log("Resultado DB: " + dbDevice.LectureP1);
+        var respuesta = {
+          version: "1.0",
+          response: {
+            shouldEndSession: false,
+            outputSpeech: {
+              type: "SSML",
+              text: "Puerco !",
+              ssml:
+                "<speak>La temperatura del equipo es, " +
+                dbDevice.LectureP1 +
+                " grados, y la humedad es de " +
+                dbDevice.LectureP2 +
+                " porciento</speak> "
+            }
+          }
+        };
+    
+        res.send(respuesta);
+      });
+    });  
+
   });       
     
 
