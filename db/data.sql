@@ -34,3 +34,29 @@ VALUES (14.5,13.2,1234);
 
 INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
 VALUES (15.7,12.3,1234);
+
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (183,55,4567);
+
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (183,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (187,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (195,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (210,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (221,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (229,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (232,55,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (228,54,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (183,53,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (227,49,4567);
+INSERT INTO devices (LectureP1,LectureP2,NumSerie) 
+VALUES (224,38,4567);
