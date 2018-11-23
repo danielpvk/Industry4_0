@@ -158,7 +158,14 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                     divtype.append(aux);
                     console.log("aux: ",aux);
                 }
-                
+                console.log("parametro cero:", parameters[0]);
+                console.log("parametro cero:", lectures[1]);
+                var a=[parameters[0], lectures[1]];
+                var b=[parameters[1], lectures[2]];
+                var c=[parameters[2], lectures[3]];
+                google.charts.setOnLoadCallback(function(){
+                  drawChart(a,b,c);
+                });
             });
     });
 };
@@ -184,22 +191,24 @@ var refreshDeviceLectures=function(){
 };
 //google.charts.load('current', {'packages':['gauge']});
 //google.charts.setOnLoadCallback(drawChart());
-refreshDeviceLectures();
 google.charts.load('current', {'packages':['gauge']});
+refreshDeviceLectures();
+
 var a=['Memory', 80];
 var b=['Memor', 60];
 var c=['Memo', 70];
-google.charts.setOnLoadCallback(drawChart,a);
+/* google.charts.setOnLoadCallback(function(){
+  drawChart(a,b,c);
+}); */
 
-function drawChart(d,e,f) {
+function drawChart(d,e,) {
         console.log(d);
         console.log(e);
-        console.log(f);
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           d,
           e,
-          f
+          
           /* ['Memory', 80],
           ['CPU', 55],
           ['Network', 68] */
