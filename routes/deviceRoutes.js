@@ -43,7 +43,7 @@ module.exports = function(app) {
       db.Device.findOne({ where: { NumSerie: req.params.numserie },order: [ [ 'createdAt', 'DESC' ]]}).then(function(dbDevice) {
           res.json(dbDevice);
       });  
-      
+    });
     ///***** the ALEXA ROUTES ******** */
     app.post("/alexa", function(req, res) {
       db.Device.findOne({
@@ -74,7 +74,7 @@ module.exports = function(app) {
       });
     });  
 
-  });       
+         
     
 
 
