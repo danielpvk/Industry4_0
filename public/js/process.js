@@ -1,6 +1,4 @@
 // Get references to page elements
-
-
 var $div1=$("#div1");
 var $d1=$("#d1");
 var $div2=$("#div2");
@@ -57,10 +55,10 @@ var API_D = {
 
  
 // Script to print the lectures of the devices
-var getDeviceLastLecture = function(divtype,serie,type) {
-  console.log("entre al get last lecture",serie,"tipo",type);
+var getDeviceLastLecture = function(divtype,serie,type,graphD) {
+  
     API_D.getDevices(type).then(function(data1){
-        console.log(data1);
+       
         var parameters=[];
         var min=[];
         var max=[];
@@ -90,7 +88,7 @@ var getDeviceLastLecture = function(divtype,serie,type) {
             max.push(data1.Parameter5_max_val);
         }
         API_Device.getDeviceNumSerieLast(serie).then(function(data) {
-                console.log("****////");
+        
                 divtype.empty();
                 var lectures=[];
                 lectures.push(data.createdAt);
@@ -113,10 +111,8 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                     aux="";
                     var aux="     Actual "+parameters[j]+" :"+lectures[j+1]+"<br>";
                     divtype.append(aux);
-                    console.log("aux: ",aux);
                 }
-                console.log("parametro cero:", parameters[0]);
-                console.log("parametro cero:", lectures[1]);
+     
                 var gauges=[];
                 for (var h=0;h<parameters.length;h++){
                     gauges.push([parameters[h],lectures[h+1]]);
@@ -124,34 +120,34 @@ var getDeviceLastLecture = function(divtype,serie,type) {
                 switch (gauges.length) {
                     case (0): ;
                 }
-                 /* for (var k=0;k<gauges.length;k++){
-                    console.log("for k", gauges[k]);
-                    console.log("graph: ","graph1_"+(k+1));
-     /*                google.charts.setOnLoadCallback(function(){
-                        drawChart(gauges[k],max[k],"graph1_"+(k+1))}); 
+                if (gauges[0]){
                     google.charts.setOnLoadCallback(function(){
-                    drawChart(gauges[k],max[h],"graph1_"+(k+1));});     
-                } */
-                 
-                /* google.charts.setOnLoadCallback(function(){
-                        drawChart(gauges,max[h],"graph1_2")}); */
-                 
-              /*   var a=[parameters[0], lectures[1]];
-                var b=50;
-                var c="graph1_1";
-                google.charts.setOnLoadCallback(function(){
-                  drawChart(a,b,c); 
-                }); */
-                google.charts.setOnLoadCallback(function(){
-                    drawChart(gauges,max,"graph1_2")});
-            });
+                        drawChart(gauges[0],max[0],graphD+"_1")});
+                }
+                if (gauges[1]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[1],max[1],graphD+"_2")});
+                    }
+                if (gauges[2]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[2],max[2],graphD+"_3")});
+                    }
+                if (gauges[3]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[3],max[3],graphD+"_4")});
+                    }
+                if (gauges[4]){
+                    google.charts.setOnLoadCallback(function(){
+                        drawChart(gauges[4],max[4],graphD+"_5")});
+                    }
+            });//api_d closing bracket
     });
 };
 
 //check if the parameter exist, if the parameter=0, cleans the screen in the parameter div
-var ifParameter=function(id,divData,divText,typeD){
+var ifParameter=function(id,divData,divText,typeD,g){
     if (id!=0){
-        getDeviceLastLecture(divData,id,typeD);
+        getDeviceLastLecture(divData,id,typeD,g);
     }
     else
     {
@@ -160,12 +156,12 @@ var ifParameter=function(id,divData,divText,typeD){
 }
 //Call the function to fill the data of each parameter
 var refreshDeviceLectures=function(){
-    ifParameter($idD1.text(),$div1,$d1,$type1.text());
+    ifParameter($idD1.text(),$div1,$d1,$type1.text(),"graph1");
     
-    ifParameter($idD2.text(),$div2,$d2,$type2.text());
-    ifParameter($idD3.text(),$div3,$d3,$type3.text());
-    ifParameter($idD4.text(),$div4,$d4,$type4.text());
-    ifParameter($idD5.text(),$div5,$d5,$type5.text());
+    ifParameter($idD2.text(),$div2,$d2,$type2.text(),"graph2");
+    ifParameter($idD3.text(),$div3,$d3,$type3.text(),"graph3");
+    ifParameter($idD4.text(),$div4,$d4,$type4.text(),"graph4");
+    ifParameter($idD5.text(),$div5,$d5,$type5.text(),"graph5");
 };
 //google.charts.load('current', {'packages':['gauge']});
 //google.charts.setOnLoadCallback(drawChart());
@@ -179,31 +175,9 @@ refreshDeviceLectures();
 function drawChart(gauges,maximo,graphDiv) {
         console.log("draw 0",gauges);
         console.log("max 0",maximo);
-        switch (gauges.length){
-            case (1): var data = google.visualization.arrayToDataTable([
-                        ['Label', 'Value'],
-                        gauges[0]
-                    ]);break;
-            case (2): var data = google.visualization.arrayToDataTable([
-                        ['Label', 'Value'],
-                        gauges[0],gauges[1]
-                    ]);break; 
-            case (3): var data = google.visualization.arrayToDataTable([
-                        ['Label', 'Value'],
-                        gauges[0]
-                    ]);break;
-            case (4): var data = google.visualization.arrayToDataTable([
-                        ['Label', 'Value'],
-                        gauges[0],gauges[1]
-                    ]);break;
-            case (5): var data = google.visualization.arrayToDataTable([
-                        ['Label', 'Value'],
-                        gauges[0]
-                    ]);break;                             
-        }
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          gauges[0],gauges[1]
+          gauges
         ]);
 
         var options = {
@@ -211,7 +185,13 @@ function drawChart(gauges,maximo,graphDiv) {
           redFrom: 90, redTo: 100,
           yellowFrom:75, yellowTo: 90,
           minorTicks: 5,
-          max:maximo
+          max:maximo,
+          greenFrom:maximo*0.40,
+          greenTo:maximo*0.80,
+          yellowFrom:maximo*0.80,
+          yellowTo:maximo*0.90,
+          redFrom:maximo*.90,
+          redTo:maximo
         };
 
         var chart = new google.visualization.Gauge(document.getElementById(graphDiv));
