@@ -14,7 +14,7 @@ html {
 }
 
 .bgimg {
-    background-image: url('http://www.aeutransmer.com/wp-content/uploads/2017/09/29-09-2017-INDUSTRIA.jpg');
+    background-image: url('https://danielpvk.github.io/Industry4_0/public/images/industry-2.jpg');
     min-height: 100%;
     background-position: center;
     background-size: cover;
@@ -36,16 +36,32 @@ element.style {
     color: #424242
 }
 
-h1,
-h2,
-h3,
+h1 {
+    font-family: 'Rozha One', serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
+h2  {
+    font-family: 'Rozha One', serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
+h3 {
+    font-family: 'Rozha One', serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
 h4,
 h5,
 h6,
 p {
-    font-family: "Playfair Display";
+    font-family: 'Rozha One', serif;
+    font-style:black;
     letter-spacing: 5px;
-    color: crimson;
+    color: #003333;
 }
 
 .detras {

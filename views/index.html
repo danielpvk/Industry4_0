@@ -2,7 +2,7 @@
 
 <html>
 
-<title>W3.CSS Template</title>
+<title>Industry 4.0</title>
 
 <meta charset="UTF-8">
 
@@ -11,175 +11,106 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
-<style>
-
-body,h1,h5 {font-family: "Raleway", sans-serif color: black}
-
-body, html {height: 100%}
-
-.bgimg {
-
-    background-image: url('http://www.aeutransmer.com/wp-content/uploads/2017/09/29-09-2017-INDUSTRIA.jpg');
-
-    min-height: 100%;
-
-    background-position: center;
-
-    background-size: cover;
-
-}
-
-p{font-color:black;
-
- 
-
-}
-
-</style>
-
 <body>
 
- 
+    <div class="bgimg">
 
-<div class="bgimg w3-display-container w3-text-white">
+        <div class="w3-display-middle w3-jumbo">
+            <br>
+            <br>
 
-  <div class="w3-display-middle w3-jumbo">
+            <p>Industry 4.0</p>
 
-    <p>Industry 4.0</p>
+        </div>
 
+        
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>This is your Industry 4.0 workbench!</h2>
+   <!--     <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="process-name">Add Process</label>
+            <input type="text" id="process-name" class="form-control" aria-describedby="process-name" placeholder="Enter Process Name">
+          </div>
+          <div class="form-group">
+            <label for="process-description">Process Description</label>
+            <textarea class="form-control" id="process-description" aria-describedby="process-description" placeholder="Enter Process Description"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>-->
+       <form class="clearfix mb-4" action="/addprocess">
+            <br>
+            <br>
+            <br>
+            <br>
+            <button id="add-new-process" class="btn btn-primary float-right">Add New Process</button>
+        </form>
+        <br>
+        <h3>Choose a process to monitor:</h3>
+        <ul id="process-list" class="list-group">
+          {{#each process}}
+            <li data-id="{{this.id}}" class="list-group-item">
+            <a href="process/{{this.id}}">{{this.Process_name}}</a>
+            <button class="btn btn-danger float-right delete">delete</button>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
-
-  <div class="w3-display-topleft w3-container w3-xlarge">
-
-    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-blue">menu</button></p>
-
-    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-blue">contact</button></p>
-
-  </div>
-
-  <div class="w3-display-bottomleft w3-container">
-
-    <p class="w3-xlarge">Looking for a machine lecture</p>
-
-    <p class="w3-large">Prolonganción Paseo de la Reforma 500, Ciudad de México</p>
-
-    <p>powered by <a href="Tecnologico de Monterrey" target="_blank">Tecnologico de Monterrey</a></p>
-
-  </div>
-
 </div>
 
- 
+ <div class="w3-display-bottomleft w3-container">
 
-<!-- Menu Modal -->
+            
 
-<div id="menu" class="w3-modal">
+            <p>powered by <a href="Tecnologico de Monterrey" target="_blank">Tecnologico de Monterrey</a></p>
 
-  <div class="w3-modal-content w3-animate-zoom">
+        </div>
+        <!-- Navbar (sit on top) -->
+<div class="w3-top">
 
-    <div class="w3-container w3-black w3-display-container">
-
-      <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-
-      <h1>Machine</h1>
-
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">INDUSTRY 4.0</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
     </div>
-
-    <div class="w3-container">
-
-      <h5>Papas <b>Freidora</b></h5>
-
-      <h5>Pan <b>Hono</b></h5>
-
-      <h5>Secado <b>Lavadora</b></h5>
-
-    </div>
-
-    <div class="w3-container w3-black">
-
-      <h1>Main Courses</h1>
-
-    </div>
-
-    <div class="w3-container">
-
-      <h5>Grilled Fish and Potatoes <b>$8.50</b></h5>
-
-      <h5>Italian Pizza <b>$5.50</b></h5>
-
-      <h5>Veggie Pasta <b>$4.00</b></h5>
-
-      <h5>Chicken and Potatoes <b>$6.50</b></h5>
-
-      <h5>Deluxe Burger <b>$5.00</b></h5>
-
-    </div>
-
-    <div class="w3-container w3-black">
-
-      <h1>Desserts</h1>
-
-    </div>
-
-    <div class="w3-container">
-
-      <h5>Fruit Salad <b>$2.50</b></h5>
-
-      <h5>Ice cream <b>$2.00</b></h5>
-
-      <h5>Chocolate Cake <b>$4.00</b></h5>
-
-      <h5>Cheese <b>$5.50</b></h5>
-
-    </div>
-
   </div>
-
 </div>
-
- 
-
-<!-- Contact Modal -->
-
-<div id="contact" class="w3-modal">
-
-  <div class="w3-modal-content w3-animate-zoom">
-
-    <div class="w3-container w3-black">
-
-      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-
-      <h1>Contact</h1>
-
-    </div>
-
-    <div class="w3-container">
-
-      <p>Reserve an advice, ask for a special measure or just send us a message:</p>
-
-      <form action="/action_page.php" target="_blank">
-
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-
-        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-
-        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-
-        <p><button class="w3-button" type="submit">SEND MESSAGE</button></p>
-
-      </form>
-
-    </div>
-
+<!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-blue w3-padding-16">About</h3>
+    <p><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </b></p>
   </div>
-
-</div>
-
+  </div>
  
 
+  
+  
+ 
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
 
-</html>
+
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
