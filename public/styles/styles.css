@@ -37,28 +37,46 @@ element.style {
 }
 
 h1 {
-    font-family: 'Rozha One', serif;
+    font-family: 'Kanit', sans-serif;
     font-style:black;
     letter-spacing: 5px;
     color: #003333;
 }
 h2  {
-    font-family: 'Rozha One', serif;
+    font-family: 'Kanit', sans-serif;
     font-style:black;
     letter-spacing: 5px;
     color: #003333;
 }
 h3 {
-    font-family: 'Rozha One', serif;
+    font-family: 'Kanit', sans-serif;
     font-style:black;
     letter-spacing: 5px;
     color: #003333;
 }
-h4,
-h5,
-h6,
+h4
+{
+    font-family: 'Kanit', sans-serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
+h5
+{
+    font-family: 'Kanit', sans-serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
+h6
+{
+    font-family: 'Kanit', sans-serif;
+    font-style:black;
+    letter-spacing: 5px;
+    color: #003333;
+}
 p {
-    font-family: 'Rozha One', serif;
+    font-family: 'Monda', sans-serif;
     font-style:black;
     letter-spacing: 5px;
     color: #003333;
