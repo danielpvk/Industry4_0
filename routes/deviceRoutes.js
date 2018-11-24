@@ -36,12 +36,12 @@ module.exports = function(app) {
     );
   });
 
-  /*   
+  /*
     app.get("/device/numserie-last/:numserie", function(req, res) {
         db.Device.findAll({ where: { NumSerie: req.params.numserie } }).then(function(dbDevice) {
             res.json(dbDevice[dbDevice.length-1]);
-        });   
-    }); 
+        });
+    });
      */
   app.get("/device/numserie-last/:numserie", function(req, res) {
     db.Device.findOne({
@@ -78,7 +78,7 @@ module.exports = function(app) {
               dbDevice.LectureP1 +
               " grados, y la humedad es de " +
               dbDevice.LectureP2 +
-              " porciento</speak> "
+              " porciento.  Quiero contarte un secreto: <amazon:effect name='whispered'>No soy un humano de verdad!,</amazon:effect>, ¿lo puedes creer?</speak> "
           }
         }
       };
@@ -87,19 +87,41 @@ module.exports = function(app) {
     });
   });
 
-  
-  app.get("/device/numserie-last100/:numserie", function(req, res) {
-    db.Device.findAll({
-      attributes:["LectureP1","createdAt"],
-      
-      where: { NumSerie: req.params.numserie },
-      order: [["createdAt", "DESC"]],
-      limit: 5
+  // Get info for Alexa
+  app.post("/alexa/en", function(req, res) {
+    db.Device.findOne({
+      limit: 1,
+      order: [["id", "DESC"]]
     }).then(function(dbDevice) {
-      res.json(dbDevice);
+      console.log("Entro una solicitud de Alexa");
+      //console.log(req.body);
+      console.log(JSON.stringify(dbDevice));
+      console.log(
+        "Resultado DB: Temp:  " +
+          dbDevice.LectureP1 +
+          "    Humedad:  " +
+          dbDevice.LectureP2
+      );
+      var respuesta = {
+        version: "1.0",
+        response: {
+          shouldEndSession: false,
+          outputSpeech: {
+            type: "SSML",
+            text: "Puerco !",
+            ssml:
+              "<speak>The temperature is, " +
+              dbDevice.LectureP1 +
+              " degrees celsius, an the humidity is " +
+              dbDevice.LectureP2 +
+              " percent</speak> "
+          }
+        }
+      };
+
+      res.send(respuesta);
     });
   });
-
 
   // Delete an example by id
   app.delete("/device/:id", function(req, res) {
