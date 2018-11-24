@@ -87,6 +87,20 @@ module.exports = function(app) {
     });
   });
 
+  
+  app.get("/device/numserie-last100/:numserie", function(req, res) {
+    db.Device.findAll({
+      attributes:["LectureP1","createdAt"],
+      
+      where: { NumSerie: req.params.numserie },
+      order: [["createdAt", "DESC"]],
+      limit: 5
+    }).then(function(dbDevice) {
+      res.json(dbDevice);
+    });
+  });
+
+
   // Delete an example by id
   app.delete("/device/:id", function(req, res) {
     db.DeviceType.destroy({ where: { id: req.params.id } }).then(function(

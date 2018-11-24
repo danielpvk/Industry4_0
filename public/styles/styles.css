@@ -1,4 +1,3 @@
-body,
 a {
     /* text-decoration: none !important; */
     color: #424242 !important;
@@ -8,14 +7,10 @@ a:hover {
     text-decoration: none !important;
 }
 
-h1,
-h5 {
-    font-family: "Raleway", sans-serif color: black;
-}
-
 body,
 html {
-    height: 100%
+    width: 100%;
+    height: 100%;
 }
 
 .bgimg {
@@ -41,10 +36,6 @@ element.style {
     color: #424242
 }
 
-body {
-    font-family: "Times New Roman", Georgia, Serif;
-}
-
 h1,
 h2,
 h3,
@@ -54,18 +45,14 @@ h6,
 p {
     font-family: "Playfair Display";
     letter-spacing: 5px;
-    color: orangered;
+    color: crimson;
+}
+
+.detras {
+    background-color: aqua;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
 
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    font-family: "Playfair Display";
-    letter-spacing: 5px;
-    color: orangered;
-}
